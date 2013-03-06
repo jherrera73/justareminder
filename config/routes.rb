@@ -1,5 +1,12 @@
 Justareminder::Application.routes.draw do
 
+  match '/login' => 'user_sessions#new'
+  match '/logout' => 'user_sessions#destroy'
+
+  resources :user_sessions, only:[:new, :create]
+
+  resources :users, except: [:show]
+
   root to: 'pages#index'
 
   # The priority is based upon order of creation:
