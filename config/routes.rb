@@ -1,5 +1,9 @@
 Justareminder::Application.routes.draw do
 
+  resources :contacts
+
+  resources :reminders
+
   match '/login' => 'user_sessions#new'
   match '/logout' => 'user_sessions#destroy'
 

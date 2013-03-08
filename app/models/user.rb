@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :full_name, :password, :password_confirmation, :role
 
   before_save     :ensure_in_role
-
+  
   ROLES = %w[Admin User]
 
   def admin?
