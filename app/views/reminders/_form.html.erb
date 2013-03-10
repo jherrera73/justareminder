@@ -17,13 +17,13 @@
   </div>
   <div class="field">
     <%= f.label :start %><br />
-    <%= f.datetime_select :start %>
+    <%= f.text_field :start %>
   </div>
-  <div class="field">
+  <div class="field" >
     <%= f.label :end %><br />
-    <%= f.datetime_select :end %>
+    <%= f.text_field :end %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create reminder', class: 'btn btn-primary' %>
   </div>
 <% end %>

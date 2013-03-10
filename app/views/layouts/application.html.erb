@@ -3,9 +3,14 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= content_for?(:title) ? yield(:title) : "Just a reminder" %></title>
-  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Just a reminder" %>">
-  <%= stylesheet_link_tag "application", :media => "all" %>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Just a reminder" %>"> 
+  <%= stylesheet_link_tag "application", :media => "all" %> 
+  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js",
+    "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" %>  
+  <%= javascript_include_tag "jquery.timepicker.min.js" %>
+  <%= javascript_include_tag "jquery-ui-timepicker-addon.js" %>
   <%= csrf_meta_tags %>
   <%= yield(:head) %>
 </head>
@@ -19,7 +24,7 @@
   </nav>
 </header>
 <div id="main" role="main">
-  <div class="container">
+  <div class="container" style="background-color: White; padding-left: 20px; padding-right: 20px; padding-top: 25px; margin-top: 10px;">
     <div class="content">
       <div class="row">
         <div class="span12">

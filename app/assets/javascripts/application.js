@@ -9,8 +9,21 @@
 //
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
-//
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+$(function() {
+	
+  $('#reminder_start').datetimepicker({
+	controlType: 'select',
+	timeFormat: 'hh:mm tt'
+	});
+	
+  $('#reminder_end').datetimepicker({
+	controlType: 'select',
+	timeFormat: 'hh:mm tt'
+	});
+
+});
