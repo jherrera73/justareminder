@@ -5,7 +5,6 @@ gem 'annotate'
 gem 'authlogic'
 gem 'cancan'
 
-gem 'mysql2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
