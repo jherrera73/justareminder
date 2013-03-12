@@ -16,7 +16,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'thin'
 end
 
 # Gems used only for assets and not required
@@ -31,7 +30,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem "twitter-bootstrap-rails", "~> 2.2.6"
+gem 'bootstrap-sass'
 gem 'jquery-ui-rails'
 gem 'jquery-rails'
 
