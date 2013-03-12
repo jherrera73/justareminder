@@ -12,8 +12,8 @@
 <% @reminders.each do |reminder| %>
   <tr>
     <td><%= reminder.description %></td>
-    <td><%= reminder.start.to_formatted_s(:long) %></td>
-    <td><%= reminder.end.to_formatted_s(:long) %></td>
+    <td><%= (reminder.start.to_formatted_s(:long)) if reminder.start %></td>
+    <td><%= (reminder.end.to_formatted_s(:long)) if reminder.end %></td>
     <td><%= link_to 'Edit', edit_reminder_path(reminder), class: "btn btn-small btn-info" %></td>
     <td><%= link_to 'Delete', reminder, class: "btn btn-small btn-warning",  method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
