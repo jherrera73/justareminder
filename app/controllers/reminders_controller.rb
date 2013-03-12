@@ -27,7 +27,7 @@ class RemindersController < ApplicationController
     @reminder = Reminder.find(params[:id])
 
     if @reminder.update_attributes(params[:reminder])
-      redirect_to @reminder, notice: 'Reminder was successfully updated.'
+      redirect_to reminders_url, notice: 'Reminder was successfully updated.'
     else
       render action: "edit"
     end
