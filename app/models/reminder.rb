@@ -1,5 +1,5 @@
 class Reminder < ActiveRecord::Base
-  attr_accessible :description, :end, :start
+  attr_accessible :description, :end, :start, :user_id
   
   belongs_to :user
   

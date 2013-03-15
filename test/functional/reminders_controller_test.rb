@@ -1,8 +1,12 @@
 require 'test_helper'
 
+
 class RemindersControllerTest < ActionController::TestCase
+  setup :activate_authlogic
+  
   setup do
     @reminder = reminders(:one)
+    @user_session = UserSession.create(users(:one))
   end
 
   test "should get index" do
@@ -18,15 +22,10 @@ class RemindersControllerTest < ActionController::TestCase
 
   test "should create reminder" do
     assert_difference('Reminder.count') do
-      post :create, reminder: { description: @reminder.description, end: @reminder.end, start: @reminder.start, user_id: @reminder.user_id }
+      post :create, reminder: { description: @reminder.description, end: @reminder.end, start: @reminder.start}
     end
 
     assert_redirected_to reminder_path(assigns(:reminder))
-  end
-
-  test "should show reminder" do
-    get :show, id: @reminder
-    assert_response :success
   end
 
   test "should get edit" do
@@ -35,8 +34,8 @@ class RemindersControllerTest < ActionController::TestCase
   end
 
   test "should update reminder" do
-    put :update, id: @reminder, reminder: { description: @reminder.description, end: @reminder.end, start: @reminder.start, user_id: @reminder.user_id }
-    assert_redirected_to reminder_path(assigns(:reminder))
+    put :update, id: @reminder, reminder: { description: @reminder.description, end: @reminder.end, start: @reminder.start}
+    assert_redirected_to reminders_path
   end
 
   test "should destroy reminder" do

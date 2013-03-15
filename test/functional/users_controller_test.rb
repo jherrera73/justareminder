@@ -1,8 +1,10 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  setup :activate_authlogic
+  
   setup do
-    @user = users(:one)
+    @user = users(:two)
   end
 
   test "should get index" do
@@ -18,15 +20,10 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should create user" do
     assert_difference('User.count') do
-      post :create, user: { email: @user.email, fullname: @user.fullname }
+      post :create, user: { email: @user.email, full_name: @user.full_name }
     end
 
     assert_redirected_to user_path(assigns(:user))
-  end
-
-  test "should show user" do
-    get :show, id: @user
-    assert_response :success
   end
 
   test "should get edit" do
@@ -35,7 +32,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should update user" do
-    put :update, id: @user, user: { email: @user.email, fullname: @user.fullname }
+    put :update, id: @user, user: { email: @user.email, full_name: @user.full_name }
     assert_redirected_to user_path(assigns(:user))
   end
 

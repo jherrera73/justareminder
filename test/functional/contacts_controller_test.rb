@@ -1,8 +1,13 @@
 require 'test_helper'
 
+
 class ContactsControllerTest < ActionController::TestCase
+  setup :activate_authlogic
+  
   setup do
     @contact = contacts(:one)
+    @user = users(:one)
+    @user_session = UserSession.create(users(:one))
   end
 
   test "should get index" do
@@ -18,16 +23,12 @@ class ContactsControllerTest < ActionController::TestCase
 
   test "should create contact" do
     assert_difference('Contact.count') do
-      post :create, contact: { full_name: @contact.full_name, user_id: @contact.user_id }
+      post :create, contact: { full_name: @contact.full_name, email: @contact.email}
     end
 
     assert_redirected_to contact_path(assigns(:contact))
   end
 
-  test "should show contact" do
-    get :show, id: @contact
-    assert_response :success
-  end
 
   test "should get edit" do
     get :edit, id: @contact
@@ -35,7 +36,7 @@ class ContactsControllerTest < ActionController::TestCase
   end
 
   test "should update contact" do
-    put :update, id: @contact, contact: { full_name: @contact.full_name, user_id: @contact.user_id }
+    put :update, id: @contact, contact: { full_name: @contact.full_name, email: @contact.email}
     assert_redirected_to contact_path(assigns(:contact))
   end
 

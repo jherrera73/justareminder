@@ -2,8 +2,10 @@
 
 one:
   full_name: 
+  email:
   user_id: 1
 
 two:
-  full_name: 
+  full_name:  
+  email:
   user_id: 1

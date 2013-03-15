@@ -1,5 +1,7 @@
 class RemindersController < ApplicationController
 
+  before_filter :authenticate
+
   def index
     @reminders = Reminder.all
   end
@@ -14,7 +16,7 @@ class RemindersController < ApplicationController
 
   def create
     @reminder = Reminder.new(params[:reminder])
-    @reminder.user_id = current_user.id
+    @reminder.user_id = current_user_session.user.id
 
     if @reminder.save
       redirect_to reminders_url, notice: 'Reminder was successfully created.'
