@@ -1,4 +1,4 @@
-<h2>Please Login</h2>
+<h2>Please Register for Just a reminder</h2>
 
 <%= form_for @user_session do |f| %>
 
@@ -13,16 +13,20 @@
         </div>
     <% end %>
 
-    <div>
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-    </div>
 
-    <div>
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
-    </div>
+    <div class="field">
+    	<%= f.label :email %><br />
+    	<%= f.text_field :email %>
+  	</div>
+  	<div class="field">
+    	<%= f.label :password %><br />
+    	<%= f.password_field :password %>
+  	</div>
+  	<div class="field">
+    	<%= f.label :password_confirmation %><br />
+    	<%= f.password_field :password_confirmation %>
+  	</div>
 
-    <p><%= f.submit "Login" %></p>
+    <p><%= f.submit "Register" %></p>
 
 <% end %>
