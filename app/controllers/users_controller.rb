@@ -8,12 +8,6 @@ class UsersController < ApplicationController
     @users = User.all 
   end
 
-  # GET /users/1
-  # GET /users/1.json
-  def show
-    @user = User.find(params[:id])
-  end
-
   # GET /users/new
   # GET /users/new.json
   def new
@@ -31,7 +25,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
+      redirect_to users_url, notice: 'User was successfully created.'
     else
       render action: "new" 
     end

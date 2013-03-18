@@ -4,4 +4,10 @@ class Reminder < ActiveRecord::Base
   belongs_to :user
   
   has_and_belongs_to_many :contacts
+  
+  validates :description, :presence => true
+  
+  validates :end, :presence => true
+  
+  validates :start, :presence => true
 end

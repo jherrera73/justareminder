@@ -4,9 +4,11 @@ class UsersControllerTest < ActionController::TestCase
   setup :activate_authlogic
   
   setup do
-    @user = users(:two)
+    @user = users(:one)
+    @user_two = users(:two)
+    @user_session = UserSession.create(users(:one))
   end
-
+  
   test "should get index" do
     get :index
     assert_response :success
@@ -20,10 +22,27 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should create user" do
     assert_difference('User.count') do
-      post :create, user: { email: @user.email, full_name: @user.full_name }
+      post :create, user: { role: "User", 
+                          email: "user@email.com", 
+                          password: "friends", 
+                          full_name: @user.full_name, 
+                          password_confirmation: "friends"
+                        }
     end
 
-    assert_redirected_to user_path(assigns(:user))
+    assert_redirected_to users_path
+  end
+  
+  test "posting invalid info should not create user" do
+
+      post :create, user: { role: "User", 
+                          email: "user@", 
+                          password: "", 
+                          full_name: @user.full_name, 
+                          password_confirmation: ""
+                        }
+
+    assert_select 'div.field_with_errors'
   end
 
   test "should get edit" do
@@ -33,7 +52,12 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should update user" do
     put :update, id: @user, user: { email: @user.email, full_name: @user.full_name }
-    assert_redirected_to user_path(assigns(:user))
+    assert_redirected_to users_path
+  end
+  
+  test "putting invalid information should not update user" do
+    put :update, id: @user, user: { email: "", full_name: "" }
+    assert_select 'div.field_with_errors'
   end
 
   test "should destroy user" do
@@ -43,4 +67,5 @@ class UsersControllerTest < ActionController::TestCase
 
     assert_redirected_to users_path
   end
+
 end

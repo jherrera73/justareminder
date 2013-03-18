@@ -26,7 +26,14 @@ class ContactsControllerTest < ActionController::TestCase
       post :create, contact: { full_name: @contact.full_name, email: @contact.email}
     end
 
-    assert_redirected_to contact_path(assigns(:contact))
+    assert_redirected_to contacts_path
+  end
+  
+  test "invalid contact info should not create contact" do
+    
+    post :create, contact: { full_name: "", email: @contact.email}
+
+    assert_select 'div.field_with_errors'
   end
 
 
@@ -37,7 +44,12 @@ class ContactsControllerTest < ActionController::TestCase
 
   test "should update contact" do
     put :update, id: @contact, contact: { full_name: @contact.full_name, email: @contact.email}
-    assert_redirected_to contact_path(assigns(:contact))
+    assert_redirected_to contacts_path
+  end
+  
+  test "invalid info posted to update should not update contact" do
+    put :update, id: @contact, contact: { full_name: "", email: ""}
+    assert_select 'div.field_with_errors'
   end
 
   test "should destroy contact" do

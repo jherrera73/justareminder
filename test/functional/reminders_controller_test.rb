@@ -25,7 +25,14 @@ class RemindersControllerTest < ActionController::TestCase
       post :create, reminder: { description: @reminder.description, end: @reminder.end, start: @reminder.start}
     end
 
-    assert_redirected_to reminder_path(assigns(:reminder))
+    assert_redirected_to reminders_path
+  end
+  
+  test "invalid reminder info should not create reminder" do
+    
+    post :create, reminder: { description: "", end: @reminder.end, start: @reminder.start}
+
+    assert_select 'div.field_with_errors'
   end
 
   test "should get edit" do
@@ -36,6 +43,11 @@ class RemindersControllerTest < ActionController::TestCase
   test "should update reminder" do
     put :update, id: @reminder, reminder: { description: @reminder.description, end: @reminder.end, start: @reminder.start}
     assert_redirected_to reminders_path
+  end
+  
+  test "invalid reminder info should not update reminder" do
+    put :update, id: @reminder, reminder: { description: "", end: "", start: ""}
+    assert_select 'div.field_with_errors'
   end
 
   test "should destroy reminder" do
