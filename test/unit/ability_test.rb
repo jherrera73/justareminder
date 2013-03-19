@@ -23,9 +23,9 @@ class AbilityTest < ActiveSupport::TestCase
     assert ability.cannot?(:index, User.new)
   end
 
-  test "should not get new if user is not an admin" do
+  test "should get new if user is not an admin" do
     ability = Ability.new(@user_two)
-    assert ability.cannot?(:new, User.new)
+    assert ability.can?(:new, User.new)
   end
   
   test "user can only edit his reminder which he owns" do

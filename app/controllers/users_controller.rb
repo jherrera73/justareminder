@@ -19,7 +19,16 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
-      redirect_to users_url, notice: 'Your account was successfully created.'
+      if current_user
+        redirect_to users_url, notice: 'User was successfully created.'
+      else
+        @user_session = UserSession.new(@user)
+        @user_session.save
+        redirect_to root_url, notice: 'Your account was successfully created.'
+        UserMailer.register_confirmation(@user).deliver
+      end
+      
+      
     else
       render action: "new" 
     end
@@ -35,8 +44,6 @@ class UsersController < ApplicationController
       end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
     @user.destroy

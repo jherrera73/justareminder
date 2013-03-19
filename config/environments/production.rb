@@ -50,7 +50,19 @@ Justareminder::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = false
+  
+  # Change mail delvery to either :smtp, :sendmail, :file, :test
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.sendgrid.net",
+    port: 587,
+    user_name: "app13173053@heroku.com",
+    password: "gmcyoa1v",
+    domain: "heroku.com",
+    authentication: "plain",
+    enable_starttls_auto: true
+  }
 
   # Enable threaded mode
   # config.threadsafe!
