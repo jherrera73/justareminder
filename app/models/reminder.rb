@@ -10,4 +10,8 @@ class Reminder < ActiveRecord::Base
   validates :end, :presence => true
   
   validates :start, :presence => true
+  
+  def self.find_by_user_id(id)
+    reminders = Reminder.where("user_id == ?", id)
+  end
 end

@@ -5,7 +5,12 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    if current_user_session.user.role == "Admin"
+      @contacts = Contact.all
+    else
+      @contacts = Contact.find_by_user_id(current_user_session.user.id)
+    end
+    
   end
 
   # GET /contacts/new

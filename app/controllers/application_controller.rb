@@ -13,14 +13,6 @@ class ApplicationController < ActionController::Base
       @current_user_session ||= UserSession.find
     end
     
-    def signed_in?
-      not(current_user.nil?)
-    end
-    
-    def not_signed_in?
-      current_user.nil?
-    end
-
     def current_user
       @current_user ||= current_user_session && current_user_session.record
     end

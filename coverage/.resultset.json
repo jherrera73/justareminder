@@ -25,14 +25,6 @@
         0,
         null,
         null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
         null
       ],
       "C:/rails_projects/justareminder/app/helpers/application_helper.rb": [
@@ -60,6 +52,11 @@
         null,
         1,
         0,
+        0,
+        null,
+        0,
+        null,
+        null,
         null,
         null,
         null,
@@ -118,6 +115,11 @@
         1,
         null,
         1,
+        null,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "C:/rails_projects/justareminder/app/controllers/pages_controller.rb": [
@@ -136,6 +138,10 @@
         null,
         1,
         0,
+        0,
+        null,
+        0,
+        null,
         null,
         null,
         1,
@@ -189,6 +195,10 @@
         1,
         null,
         1,
+        null,
+        1,
+        1,
+        null,
         null
       ],
       "C:/rails_projects/justareminder/app/controllers/user_sessions_controller.rb": [
@@ -333,7 +343,7 @@
         null
       ]
     },
-    "timestamp": 1363583499
+    "timestamp": 1363663705
   },
   "Functional Tests": {
     "coverage": {
@@ -350,15 +360,7 @@
         null,
         null,
         1,
-        59,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
+        61,
         null,
         null,
         1,
@@ -396,6 +398,11 @@
         null,
         1,
         1,
+        1,
+        null,
+        0,
+        null,
+        null,
         null,
         null,
         null,
@@ -454,6 +461,11 @@
         1,
         null,
         1,
+        null,
+        1,
+        0,
+        null,
+        null,
         null
       ],
       "C:/rails_projects/justareminder/app/controllers/pages_controller.rb": [
@@ -472,6 +484,10 @@
         null,
         1,
         1,
+        1,
+        null,
+        0,
+        null,
         null,
         null,
         1,
@@ -525,6 +541,10 @@
         1,
         null,
         1,
+        null,
+        1,
+        0,
+        null,
         null
       ],
       "C:/rails_projects/justareminder/app/controllers/user_sessions_controller.rb": [
@@ -669,6 +689,6 @@
         null
       ]
     },
-    "timestamp": 1363583523
+    "timestamp": 1363663728
   }
 }
