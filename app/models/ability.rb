@@ -10,6 +10,7 @@ class Ability
       can :edit, User, :id => user.id
       can :update, User, :id => user.id 
       
+      
       can :index, Contact
       can :new, Contact
       can :create, Contact
@@ -24,5 +25,6 @@ class Ability
       can :update, Reminder, :user_id => user.id
     end
     
+    can :new, User
   end
 end

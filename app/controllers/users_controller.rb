@@ -1,15 +1,11 @@
 class UsersController < ApplicationController
   
-  before_filter :authenticate
+  before_filter :authenticate, :only=> [:index, :edit, :update, :destroy]
   
-  # GET /users
-  # GET /users.json
   def index
     @users = User.all 
   end
 
-  # GET /users/new
-  # GET /users/new.json
   def new
     @user = User.new
   end
@@ -19,20 +15,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # POST /users
-  # POST /users.json
   def create
     @user = User.new(params[:user])
 
     if @user.save
-      redirect_to users_url, notice: 'User was successfully created.'
+      redirect_to users_url, notice: 'Your account was successfully created.'
     else
       render action: "new" 
     end
   end
 
-  # PUT /users/1
-  # PUT /users/1.json
   def update
     @user = User.find(params[:id])
 
