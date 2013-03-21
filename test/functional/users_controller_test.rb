@@ -20,7 +20,10 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create user" do
+
+  test "should create user and save user session and redirect to root_url" do
+    @user_session.destroy
+    
     assert_difference('User.count') do
       post :create, user: { role: "User", 
                           email: "user@email.com", 
@@ -29,8 +32,10 @@ class UsersControllerTest < ActionController::TestCase
                           password_confirmation: "friends"
                         }
     end
+    
+    assert_not_nil @user_session
 
-    assert_redirected_to users_path
+    assert_redirected_to root_url
   end
   
   test "posting invalid info should not create user" do

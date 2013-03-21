@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<style type="text/css">
+		   table {
+				border: 1px solid #7f94a9;	
+			}
+			th {
+				background-color: #7f94a9;
+				color: White;
+			}
+			tr:nth-child(even) td {
+				background-color: #d5e9ed;
+			}
+		</style>
+	</head>
+  		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  		<title>Just a Reminder</title>
+			<body>
+				<% if @reminders.count > 0 %>
+				<table>
+					<thead>
+		  				<tr>
+							<th>Description</th>
+		    				<th>Start time</th>
+		    				<th>End time</th>
+		  				</tr>
+					</thead>
+					<tbody>
+					<% @reminders.each do |reminder| %>
+	      				<tr>
+							<td><%= reminder.description.in_time_zone("Central Time (US & Canada)")).strftime("%d/%m/%Y  %I:%M%p" %></td>
+				  			<td><%= reminder.start.in_time_zone("Central Time (US & Canada)")).strftime("%d/%m/%Y  %I:%M%p")  %></td>
+				  			<td><%= reminder.end.in_time_zone("Central Time (US & Canada)")).strftime("%d/%m/%Y  %I:%M%p")  %></td>
+						</tr>
+	    			<% end %>
+					</tbody>
+				</table>
+				<% else %>
+				<p>
+					No open reminders found.
+				</p>
+				<% end %>
+			</body>
+</html>

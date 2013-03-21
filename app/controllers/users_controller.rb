@@ -18,17 +18,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
-    if @user.save
-      if current_user
-        redirect_to users_url, notice: 'User was successfully created.'
-      else
+    if @user.save     
         @user_session = UserSession.new(@user)
         @user_session.save
         redirect_to root_url, notice: 'Your account was successfully created.'
-        UserMailer.register_confirmation(@user).deliver
-      end
-      
-      
+        UserMailer.register_confirmation(@user).deliver       
     else
       render action: "new" 
     end

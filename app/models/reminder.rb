@@ -11,7 +11,21 @@ class Reminder < ActiveRecord::Base
   
   validates :start, :presence => true
   
-  def self.find_by_user_id(id)
-    reminders = Reminder.where("user_id == ?", id)
+  before_save :make_open
+  
+  def self.find_by_user_id(id, status)
+    reminders = Reminder.where("user_id == ? AND Status = ?", id, status)
   end
+  
+  def close
+    self.status = "Closed"
+    self.save
+  end
+  
+  private
+  
+  def make_open
+    self.status = "Open"
+  end
+  
 end

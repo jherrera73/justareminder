@@ -6,7 +6,7 @@ class RemindersController < ApplicationController
     if current_user_session.user.role == "Admin"
       @reminders = Reminder.all
     else
-      @reminders = Reminder.find_by_user_id(current_user_session.user.id)
+      @reminders = Reminder.find_by_user_id(current_user_session.user.id, "Open")
     end
   end
 

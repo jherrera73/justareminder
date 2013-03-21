@@ -9,7 +9,15 @@ class RemindersControllerTest < ActionController::TestCase
     @user_session = UserSession.create(users(:one))
   end
 
-  test "should get index" do
+  test "should get index of all reminders if admin" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:reminders)
+  end
+  
+  test "should get index of just users reminders if not admin" do
+    @user_session.destroy
+    @user_session = UserSession.create(users(:two))
     get :index
     assert_response :success
     assert_not_nil assigns(:reminders)
