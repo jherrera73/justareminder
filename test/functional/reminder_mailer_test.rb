@@ -13,10 +13,20 @@ class ReminderMailerTest < ActionMailer::TestCase
     assert_equal ["remindersupdate@justareminder.com"], mail.from
   end
   
-  test "send_open_issues_delivers" do
-    ReminderMailer.send_open_reminders.deliver
+  test "send_open_reminders" do
+    ReminderMailer.send_open_reminders
     
-    assert !ActionMailer::Base.deliveries.empty?
+    reminder_email = ActionMailer::Base.deliveries.last
+    
+    assert_nil reminder_email
+  end
+  
+  test "open_reminders_delivers" do
+    ReminderMailer.open_reminders(@user, @reminders).deliver
+    
+    reminder_email = ActionMailer::Base.deliveries.last
+    
+    assert_not_nil reminder_email
   end
 
 end

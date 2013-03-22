@@ -11,10 +11,14 @@ class Reminder < ActiveRecord::Base
   
   validates :start, :presence => true
   
-  before_save :make_open
+  before_create :make_open
   
   def self.find_by_user_id(id, status)
     reminders = Reminder.where("user_id == ? AND Status = ?", id, status)
+  end
+  
+  def self.find_open_reminder
+    reminders = Reminder.where(:start => (Time.now.midnight - 1.day)..(Time.now.midnight + 7.day))
   end
   
   def close
