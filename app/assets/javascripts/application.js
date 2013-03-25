@@ -17,13 +17,11 @@
 $(function() {
 	
   $('#reminder_start').datetimepicker({
-	controlType: 'select',
-	timeFormat: 'hh:mm tt'
+	controlType: 'select'
 	});
 	
   $('#reminder_end').datetimepicker({
-	controlType: 'select',
-	timeFormat: 'hh:mm tt'
+	controlType: 'select'
 	});
 
 });

@@ -20,6 +20,8 @@ class RemindersController < ApplicationController
 
   def create
     @reminder = Reminder.new(params[:reminder])
+    @reminder.end = Time.strptime(params[:reminder][:end], '%m/%d/%Y %H:%M').in_time_zone("Central Time (US & Canada)").utc
+    @reminder.start =  Time.strptime(params[:reminder][:start], '%m/%d/%Y %H:%M').in_time_zone("Central Time (US & Canada)").utc
     @reminder.user_id = current_user_session.user.id
 
     if @reminder.save
