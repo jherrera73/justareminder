@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :start %><br />
-    <%= f.text_field :start, :value => (f.object.start.in_time_zone("Central Time (US & Canada)") if f.object.start) %>
+    <%= f.text_field :start %>
   </div>
   <div class="field" >
     <%= f.label :end %><br />
-    <%= f.text_field :end, :value => (f.object.end.in_time_zone("Central Time (US & Canada)") if f.object.end) %>
+    <%= f.text_field :end %>
   </div>
   <div class="actions">
     <%= f.submit 'Create reminder', class: 'btn btn-primary' %>

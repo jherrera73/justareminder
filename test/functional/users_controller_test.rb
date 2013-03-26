@@ -24,14 +24,19 @@ class UsersControllerTest < ActionController::TestCase
   test "should create user and save user session and redirect to root_url" do
     @user_session.destroy
     
-    assert_difference('User.count') do
+    assert_difference('Reminder.count') do
       post :create, user: { role: "User", 
-                          email: "user@email.com", 
-                          password: "friends", 
-                          full_name: @user.full_name, 
-                          password_confirmation: "friends"
-                        }
+                            email: "user@email.com", 
+                            password: "friends", 
+                            full_name: @user.full_name,
+                            time_zone: @user.time_zone, 
+                            password_confirmation: "friends"
+                          }
     end
+
+    
+    #Will return errors from save method -- keep in mind for later use
+    #assert_nil assigns(:user).errors
     
     assert_not_nil @user_session
 
@@ -56,7 +61,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should update user" do
-    put :update, id: @user, user: { email: @user.email, full_name: @user.full_name }
+    put :update, id: @user, user: { email: @user.email, full_name: @user.full_name, time_zone: @user.time_zone }
     assert_redirected_to users_path
   end
   

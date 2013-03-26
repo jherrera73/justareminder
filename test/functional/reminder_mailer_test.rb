@@ -8,7 +8,7 @@ class ReminderMailerTest < ActionMailer::TestCase
   
   test "open_reminders" do
     mail = ReminderMailer.open_reminders(@user, @reminders)
-    assert_equal "Reminders for " + @reminders.description, mail.subject
+    assert_equal "Reminder for : " + @reminders.description, mail.subject
     assert_equal ["jherrera@comcast.net"], mail.to
     assert_equal ["remindersupdate@justareminder.com"], mail.from
   end

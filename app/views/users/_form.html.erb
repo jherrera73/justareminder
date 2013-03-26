@@ -1,7 +1,7 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being registered:</h2>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -18,6 +18,10 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :time_zone %><br />
+    <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
   </div>
   <div class="field">
     <%= f.label :password %><br />
