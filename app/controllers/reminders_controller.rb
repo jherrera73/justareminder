@@ -20,8 +20,8 @@ class RemindersController < ApplicationController
 
   def create
     @reminder = Reminder.new(params[:reminder])
-    @reminder.end = Time.strptime(params[:reminder][:end], '%m/%d/%Y %H:%M').utc
-    @reminder.start =  Time.strptime(params[:reminder][:start], '%m/%d/%Y %H:%M').utc
+    @reminder.end = Time.strptime(params[:reminder][:end], '%m/%d/%Y %H:%M').zone.local_to_utc
+    @reminder.start =  Time.strptime(params[:reminder][:start], '%m/%d/%Y %H:%M').zone.local_to_utc
     @reminder.user_id = current_user_session.user.id
 
     if @reminder.save
