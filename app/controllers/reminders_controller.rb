@@ -19,7 +19,7 @@ class RemindersController < ApplicationController
   end
 
   def create
-    Time.zone = user_time_zone
+    Time.zone = current_user.time_zone
     @reminder = Reminder.new(params[:reminder])
     @reminder.end = Time.strptime(params[:reminder][:end], '%m/%d/%Y %H:%M').utc.in_time_zone
     @reminder.start =  Time.strptime(params[:reminder][:start], '%m/%d/%Y %H:%M').utc.in_time_zone
@@ -34,7 +34,7 @@ class RemindersController < ApplicationController
 
   def update
     @reminder = Reminder.find(params[:id])
-    Time.zone = user_time_zone
+    Time.zone = current_user.time_zone
     params[:reminder][:end] = Time.strptime(params[:reminder][:end], '%m/%d/%Y %H:%M').utc.in_time_zone
     params[:reminder][:start] =  Time.strptime(params[:reminder][:start], '%m/%d/%Y %H:%M').utc.in_time_zone
     if @reminder.update_attributes(params[:reminder])
