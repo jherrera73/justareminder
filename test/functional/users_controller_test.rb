@@ -24,7 +24,7 @@ class UsersControllerTest < ActionController::TestCase
   test "should create user and save user session and redirect to root_url" do
     @user_session.destroy
     
-    assert_difference('Reminder.count') do
+    assert_difference('User.count') do
       post :create, user: { role: "User", 
                             email: "user@email.com", 
                             password: "friends", 

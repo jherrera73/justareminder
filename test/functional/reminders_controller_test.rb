@@ -49,12 +49,12 @@ class RemindersControllerTest < ActionController::TestCase
   end
 
   test "should update reminder" do
-    put :update, id: @reminder, reminder: { description: @reminder.description, end: @reminder.end, start: @reminder.start}
+    put :update, id: @reminder, reminder: { description: @reminder.description, end: "11/27/2013 17:00", start: "11/27/2013 12:00"}
     assert_redirected_to reminders_path
   end
   
   test "invalid reminder info should not update reminder" do
-    put :update, id: @reminder, reminder: { description: "", end: "", start: ""}
+    put :update, id: @reminder, reminder: { description: "", end: "11/27/2013 17:00", start: "11/27/2013 12:00"}
     assert_select 'div.field_with_errors'
   end
 

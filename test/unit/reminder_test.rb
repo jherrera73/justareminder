@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: reminders
+#
+#  id          :integer          not null, primary key
+#  description :string(255)
+#  start       :time
+#  end         :time
+#  user_id     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  status      :string(255)
+#
+
 require 'test_helper'
 
 class ReminderTest < ActiveSupport::TestCase
