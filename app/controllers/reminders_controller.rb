@@ -23,7 +23,7 @@ class RemindersController < ApplicationController
     endDateTime = params[:reminder][:end] + " " + Time.zone.now.strftime("%Z")
     startDateTime = params[:reminder][:start] + " " + Time.zone.now.strftime("%Z")
     @reminder.end = Time.strptime(endDateTime, '%m/%d/%Y %H:%M %Z').utc
-    @reminder.start =  Time.strptime(startDateTime, '%m/%d/%Y %H:%M').utc
+    @reminder.start =  Time.strptime(startDateTime, '%m/%d/%Y %H:%M %Z').utc
     @reminder.user_id = current_user_session.user.id
 
     if @reminder.save
