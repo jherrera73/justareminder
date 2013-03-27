@@ -19,10 +19,11 @@ class RemindersController < ApplicationController
   end
 
   def create
-    Time.zone = current_user.time_zone
     @reminder = Reminder.new(params[:reminder])
-    @reminder.end = Time.strptime(params[:reminder][:end], '%m/%d/%Y %H:%M').utc.in_time_zone(Time.zone)
-    @reminder.start =  Time.strptime(params[:reminder][:start], '%m/%d/%Y %H:%M').utc.in_time_zone(Time.zone)
+    endDateTime = params[:reminder][:end] + " " + Time.zone.now.strftime("%Z")
+    startDateTime = params[:reminder][:start] + " " + Time.zone.now.strftime("%Z")
+    @reminder.end = Time.strptime(endDateTime, '%m/%d/%Y %H:%M %Z').utc
+    @reminder.start =  Time.strptime(startDateTime, '%m/%d/%Y %H:%M').utc
     @reminder.user_id = current_user_session.user.id
 
     if @reminder.save
@@ -34,9 +35,10 @@ class RemindersController < ApplicationController
 
   def update
     @reminder = Reminder.find(params[:id])
-    Time.zone = current_user.time_zone
-    params[:reminder][:end] = Time.strptime(params[:reminder][:end], '%m/%d/%Y %H:%M').utc.in_time_zone(Time.zone)
-    params[:reminder][:start] =  Time.strptime(params[:reminder][:start], '%m/%d/%Y %H:%M').utc.in_time_zone(Time.zone)
+    endDateTime = params[:reminder][:end] + " " + Time.zone.now.strftime("%Z")
+    startDateTime = params[:reminder][:start] + " " + Time.zone.now.strftime("%Z")
+    params[:reminder][:end] = Time.strptime(endDateTime, '%m/%d/%Y %H:%M %Z').utc
+    params[:reminder][:start] =  Time.strptime(startDateTime, '%m/%d/%Y %H:%M %Z').utc
     if @reminder.update_attributes(params[:reminder])
       redirect_to reminders_url, notice: 'Reminder was successfully updated.'
     else

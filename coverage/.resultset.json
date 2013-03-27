@@ -1,7 +1,7 @@
 {
   "Unit Tests": {
     "coverage": {
-      "C:/rails_projects/justareminder/app/controllers/application_controller.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -32,23 +32,23 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/helpers/application_helper.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "C:/rails_projects/justareminder/app/helpers/contacts_helper.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/helpers/contacts_helper.rb": [
         1,
         null
       ],
-      "C:/rails_projects/justareminder/app/helpers/reminders_helper.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/helpers/reminders_helper.rb": [
         1,
         null
       ],
-      "C:/rails_projects/justareminder/app/helpers/users_helper.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "C:/rails_projects/justareminder/app/controllers/contacts_controller.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/controllers/contacts_controller.rb": [
         1,
         null,
         1,
@@ -99,99 +99,6 @@
         0,
         null,
         null,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null
-      ],
-      "C:/rails_projects/justareminder/app/models/contact.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "C:/rails_projects/justareminder/app/controllers/pages_controller.rb": [
-        1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null
-      ],
-      "C:/rails_projects/justareminder/app/controllers/reminders_controller.rb": [
-        1,
-        null,
-        1,
-        null,
-        1,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
         null,
         null,
         null,
@@ -204,7 +111,102 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/models/reminder.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/models/contact.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/jherrera/rails_projects/justareminder/app/controllers/pages_controller.rb": [
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/jherrera/rails_projects/justareminder/app/controllers/reminders_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/jherrera/rails_projects/justareminder/app/models/reminder.rb": [
         null,
         null,
         null,
@@ -253,7 +255,7 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/controllers/user_sessions_controller.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/controllers/user_sessions_controller.rb": [
         1,
         null,
         null,
@@ -282,12 +284,12 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/models/user_session.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/models/user_session.rb": [
         1,
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/controllers/users_controller.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -336,7 +338,7 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/models/user.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/models/user.rb": [
         null,
         null,
         null,
@@ -375,7 +377,7 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/mailers/reminder_mailer.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/mailers/reminder_mailer.rb": [
         1,
         1,
         null,
@@ -399,7 +401,7 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/mailers/user_mailer.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/mailers/user_mailer.rb": [
         1,
         1,
         null,
@@ -409,7 +411,7 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/models/ability.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/models/ability.rb": [
         1,
         1,
         null,
@@ -442,11 +444,11 @@
         null
       ]
     },
-    "timestamp": 1364410143
+    "timestamp": 1364416508
   },
   "Functional Tests": {
     "coverage": {
-      "C:/rails_projects/justareminder/app/controllers/application_controller.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -465,7 +467,7 @@
         null,
         null,
         1,
-        143,
+        139,
         null,
         null,
         1,
@@ -477,23 +479,23 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/helpers/application_helper.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "C:/rails_projects/justareminder/app/helpers/contacts_helper.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/helpers/contacts_helper.rb": [
         1,
         null
       ],
-      "C:/rails_projects/justareminder/app/helpers/reminders_helper.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/helpers/reminders_helper.rb": [
         1,
         null
       ],
-      "C:/rails_projects/justareminder/app/helpers/users_helper.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/helpers/users_helper.rb": [
         1,
         null
       ],
-      "C:/rails_projects/justareminder/app/controllers/contacts_controller.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/controllers/contacts_controller.rb": [
         1,
         null,
         1,
@@ -544,99 +546,6 @@
         1,
         null,
         null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null
-      ],
-      "C:/rails_projects/justareminder/app/models/contact.rb": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "C:/rails_projects/justareminder/app/controllers/pages_controller.rb": [
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "C:/rails_projects/justareminder/app/controllers/reminders_controller.rb": [
-        1,
-        null,
-        1,
-        null,
-        1,
-        2,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        null,
-        2,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        1,
-        null,
-        1,
         null,
         null,
         null,
@@ -649,7 +558,102 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/models/reminder.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/models/contact.rb": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/jherrera/rails_projects/justareminder/app/controllers/pages_controller.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/jherrera/rails_projects/justareminder/app/controllers/reminders_controller.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        2,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        null,
+        2,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/jherrera/rails_projects/justareminder/app/models/reminder.rb": [
         null,
         null,
         null,
@@ -698,7 +702,7 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/controllers/user_sessions_controller.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/controllers/user_sessions_controller.rb": [
         1,
         null,
         null,
@@ -727,12 +731,12 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/models/user_session.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/models/user_session.rb": [
         1,
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/controllers/users_controller.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -781,7 +785,7 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/models/user.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/models/user.rb": [
         null,
         null,
         null,
@@ -820,7 +824,7 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/mailers/reminder_mailer.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/mailers/reminder_mailer.rb": [
         1,
         1,
         null,
@@ -844,7 +848,7 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/mailers/user_mailer.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/mailers/user_mailer.rb": [
         1,
         1,
         null,
@@ -854,7 +858,7 @@
         null,
         null
       ],
-      "C:/rails_projects/justareminder/app/models/ability.rb": [
+      "/Users/jherrera/rails_projects/justareminder/app/models/ability.rb": [
         1,
         1,
         null,
@@ -887,6 +891,6 @@
         null
       ]
     },
-    "timestamp": 1364410173
+    "timestamp": 1364416513
   }
 }

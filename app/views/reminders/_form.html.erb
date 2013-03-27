@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :start %><br />
-    <%= f.text_field :start %>
+    <%= f.text_field :start, :value => (f.object.start.strftime("%Y-%m-%d  %H:%M") if f.object.start) %>
   </div>
   <div class="field" >
     <%= f.label :end %><br />
-    <%= f.text_field :end %>
+    <%= f.text_field :end, :value => (f.object.end.strftime("%Y-%m-%d  %H:%M") if f.object.end) %>
   </div>
   <div class="actions">
     <%= f.submit 'Create reminder', class: 'btn btn-primary' %>
