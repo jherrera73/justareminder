@@ -19,9 +19,10 @@ class RemindersController < ApplicationController
   end
 
   def create
+    Time.zone = user_time_zone
     @reminder = Reminder.new(params[:reminder])
-    @reminder.end = Time.strptime(params[:reminder][:end], '%m/%d/%Y %H:%M').utc
-    @reminder.start =  Time.strptime(params[:reminder][:start], '%m/%d/%Y %H:%M').utc
+    @reminder.end = Time.strptime(params[:reminder][:end], '%m/%d/%Y %H:%M').utc.in_time_zone
+    @reminder.start =  Time.strptime(params[:reminder][:start], '%m/%d/%Y %H:%M').utc.in_time_zone
     @reminder.user_id = current_user_session.user.id
 
     if @reminder.save
@@ -33,8 +34,9 @@ class RemindersController < ApplicationController
 
   def update
     @reminder = Reminder.find(params[:id])
-    params[:reminder][:end] = Time.strptime(params[:reminder][:end], '%m/%d/%Y %H:%M').utc
-    params[:reminder][:start] =  Time.strptime(params[:reminder][:start], '%m/%d/%Y %H:%M').utc
+    Time.zone = user_time_zone
+    params[:reminder][:end] = Time.strptime(params[:reminder][:end], '%m/%d/%Y %H:%M').utc.in_time_zone
+    params[:reminder][:start] =  Time.strptime(params[:reminder][:start], '%m/%d/%Y %H:%M').utc.in_time_zone
     if @reminder.update_attributes(params[:reminder])
       redirect_to reminders_url, notice: 'Reminder was successfully updated.'
     else
