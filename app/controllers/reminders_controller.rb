@@ -33,7 +33,8 @@ class RemindersController < ApplicationController
 
   def update
     @reminder = Reminder.find(params[:id])
-
+    params[:reminder][:end] = Time.strptime(params[:reminder][:end], '%m/%d/%Y %H:%M').utc
+    params[:reminder][:start] =  Time.strptime(params[:reminder][:start], '%m/%d/%Y %H:%M').utc
     if @reminder.update_attributes(params[:reminder])
       redirect_to reminders_url, notice: 'Reminder was successfully updated.'
     else

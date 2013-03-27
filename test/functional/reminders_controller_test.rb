@@ -30,7 +30,7 @@ class RemindersControllerTest < ActionController::TestCase
 
   test "should create reminder" do
     assert_difference('Reminder.count') do
-      post :create, reminder: { description: @reminder.description, end: @reminder.end, start: @reminder.start}
+      post :create, reminder: { description: @reminder.description, end: "11/27/2013 17:00", start: "11/27/2013 12:00"}
     end
 
     assert_redirected_to reminders_path
@@ -38,7 +38,7 @@ class RemindersControllerTest < ActionController::TestCase
   
   test "invalid reminder info should not create reminder" do
     
-    post :create, reminder: { description: "", end: @reminder.end, start: @reminder.start}
+    post :create, reminder: { description: "", end: "11/27/2013 17:00", start: "11/27/2013 12:00"}
 
     assert_select 'div.field_with_errors'
   end

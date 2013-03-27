@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  
+  around_filter :user_time_zone, if: :current_user
 
   helper_method :current_user
 
@@ -21,4 +23,7 @@ class ApplicationController < ActionController::Base
       user == current_user
     end
     
+    def user_time_zone(&block)
+      Time.use_zone(current_user.time_zone, &block)
+    end
 end

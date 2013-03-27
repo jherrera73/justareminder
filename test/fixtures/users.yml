@@ -4,6 +4,7 @@ one:
   full_name: jherrera
   email: jherrera@comcast.net
   role: Admin
+  time_zone: Central Time (US & Canada)
   password_salt: <%= salt = Authlogic::Random.hex_token %>
   crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("erin1975" + salt) %>
   persistence_token: <%= Authlogic::Random.hex_token %>
@@ -12,6 +13,7 @@ two:
   full_name: Matt Ruggio
   email: mruggio@visionps.com
   role: user
+  time_zone: Central Time (US & Canada)
   password_salt: <%= salt = Authlogic::Random.hex_token %>
   crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("pissoff" + salt) %>
   persistence_token: <%= Authlogic::Random.hex_token %>
