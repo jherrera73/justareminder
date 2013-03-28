@@ -34,6 +34,17 @@
 		<%= f.text_field :end, :value => (f.object.end.strftime("%m/%d/%Y %H:%M") if f.object.end) %>
 	</div>
   </div>
+  <div class="control-group">
+	<h5>Assign this reminder to any contacts you might have</h5>
+	<%= hidden_field_tag "reminder[contact_ids][]", nil %>
+	<% current_user.contacts.each do |contact| %>
+	<label class="checkbox">
+		<%= check_box_tag "reminder[contact_ids][]", contact.id, @reminder.contact_ids.include?(contact.id), id: dom_id(contact), :class => 'checkbox' %>
+		<%= label_tag dom_id(contact), contact.full_name, :class => 'checkbox' %>
+		
+	</label>
+	<% end %>
+  </div>
   <div class="actions">
     <%= f.submit 'Create reminder', class: 'btn btn-primary' %>
   </div>

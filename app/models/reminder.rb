@@ -13,11 +13,12 @@
 #
 
 class Reminder < ActiveRecord::Base
-  attr_accessible :description, :end, :start, :user_id, :status
+  attr_accessible :description, :end, :start, :user_id, :status, :contact_ids
   
   belongs_to :user
   
-  has_and_belongs_to_many :contacts
+  has_many :contactsreminders
+  has_many :contacts, through: :contactsreminders
   
   validates :description, :presence => true
   
@@ -31,7 +32,7 @@ class Reminder < ActiveRecord::Base
     reminders = Reminder.where("user_id == ? AND Status = ?", id, status)
   end
   
-  scope :open, lambda { where(:start => (Time.zone.now.midnight - 1.day)..(Time.zone.now.midnight + 1.day)) }
+  scope :opened, lambda { where(:start => (Time.zone.now.midnight - 1.day)..(Time.zone.now.midnight + 1.day)) }
   
   def close
     self.status = "Closed"

@@ -26,11 +26,13 @@
 		  				</tr>
 					</thead>
 					<tbody>
+						<% @reminders.each do |reminder| %>
 	      				<tr>
 							<td><%= reminder.description.in_time_zone("Central Time (US & Canada)")).strftime("%d/%m/%Y  %I:%M%p" %></td>
 				  			<td><%= reminder.start.in_time_zone("Central Time (US & Canada)")).strftime("%d/%m/%Y  %I:%M%p")  %></td>
 				  			<td><%= reminder.end.in_time_zone("Central Time (US & Canada)")).strftime("%d/%m/%Y  %I:%M%p")  %></td>
 						</tr>
+						<% end %>
 					</tbody>
 				</table>
 			</body>

@@ -3,20 +3,20 @@ class ReminderMailer < ActionMailer::Base
 
   #The main method to send all users an email of all open reminders
   def self.send_open_reminders
-    @reminders = Reminder.open
+    @users = User.all
       
-    @reminders.each do |reminder|
-      @user = User.find_by_id(reminder.user_id)
+    @users.each do |user|    
+        
+      @reminders = user.reminders.opened 
+      open_reminders(user, @reminders).deliver if @reminders.count > 0
           
-      open_reminders(@user, reminder).deliver    
     end
   end
   
-  def open_reminders(user, reminder)
+  def open_reminders(user, reminders)
     @user = user
+    @reminders = reminders
     
-    @reminder = reminder
-    
-    mail(:to => user.email, :subject => "Reminder for : " + @reminder.description)
+    mail(:to => user.email, :subject => "Reminders for : " + @user.full_name)
   end
 end

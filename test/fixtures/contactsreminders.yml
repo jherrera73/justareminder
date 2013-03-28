@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: contactsreminders
+#
+#  id          :integer          not null, primary key
+#  contact_id  :integer
+#  reminder_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  contact_id: 1
+  reminder_id: 1
+
+two:
+    contact_id: 2
+    reminder_id: 1

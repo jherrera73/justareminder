@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
 
   before_save     :ensure_in_role
   
+  has_many :contacts
+  
+  has_many :reminders
+  
   ROLES = %w[Admin User]
 
   def admin?
