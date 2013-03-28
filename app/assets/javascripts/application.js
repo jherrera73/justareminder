@@ -17,11 +17,15 @@
 $(function() {
 	
   $('#reminder_start').datetimepicker({
-	controlType: 'select'
+  	addSliderAccess: true,
+	sliderAccessArgs: { touchonly: false },
+	stepMinute: 5
 	});
 	
   $('#reminder_end').datetimepicker({
-	controlType: 'select'
+  	addSliderAccess: true,
+	sliderAccessArgs: { touchonly: false },
+	stepMinute: 5
 	});
 
 });

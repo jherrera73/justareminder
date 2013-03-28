@@ -11,17 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+  <div class="control-group">
+
+    	<%= f.label :description, class: 'control-label' %>	
+
+	<div class="controls">
+		<%= f.text_field :description %>	
+	</div>
   </div>
-  <div class="field">
-    <%= f.label :start %><br />
-    <%= f.text_field :start, :value => (f.object.start.strftime("%Y-%m-%d  %H:%M") if f.object.start) %>
+  <div class="control-group">
+
+  	<%= f.label :start, class: 'control-label' %>
+
+	<div class="controls">
+		<%= f.text_field :start, :value => (f.object.start.strftime("%m/%d/%Y %H:%M") if f.object.start) %>
+	</div>    
   </div>
-  <div class="field" >
-    <%= f.label :end %><br />
-    <%= f.text_field :end, :value => (f.object.end.strftime("%Y-%m-%d  %H:%M") if f.object.end) %>
+  <div class="control-group" >
+
+  	<%= f.label :end , class: 'control-label'%>
+	<div class="controls">
+		<%= f.text_field :end, :value => (f.object.end.strftime("%m/%d/%Y %H:%M") if f.object.end) %>
+	</div>
   </div>
   <div class="actions">
     <%= f.submit 'Create reminder', class: 'btn btn-primary' %>
