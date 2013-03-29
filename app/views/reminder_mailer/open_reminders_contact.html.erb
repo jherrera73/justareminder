@@ -18,8 +18,17 @@
   		<title>Just a Reminder</title>
 			<body>
 				<table>
+					<tr>
+						<td>
+							You are reciving this e-mail because you were tagged to receive reminders on certain events
+							from users you know.
+						</td>
+					</tr>
+				</table>
+				<table>
 					<thead>
 		  				<tr>
+		  					<th>Reminder Owner</th>
 							<th>Description</th>
 		    				<th>Start time</th>
 		    				<th>End time</th>
@@ -28,6 +37,7 @@
 					<tbody>
 						<% @reminders.each do |reminder| %>
 	      				<tr>
+	      					<td><%= reminder.user.full_name %></td>
 							<td><%= reminder.description %></td>
 				  			<td><%= reminder.start.strftime("%m/%d/%Y %I:%M %P")  %></td>
 				  			<td><%= reminder.end.strftime("%m/%d/%Y %I:%M %P")  %></td>

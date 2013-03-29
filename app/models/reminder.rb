@@ -32,7 +32,7 @@ class Reminder < ActiveRecord::Base
     reminders = Reminder.where("user_id == ? AND Status = ?", id, status)
   end
   
-  scope :opened, lambda { where(:start => (Time.zone.now.midnight - 1.day)..(Time.zone.now.midnight + 1.day)) }
+  scope :opened, lambda { where(:start => (Time.zone.now)..(Time.zone.now.midnight + 1.day)) }
   
   def close
     self.status = "Closed"
