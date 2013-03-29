@@ -18,7 +18,7 @@
 # end
 
 every 1.day, :at => '6:30 am' do #send reminders to user that have open reminders.
-  runner RemainderMailer.send_open_reminders
+  runner ReminderMailer.send_open_reminders
 end
 
 # Learn more: http://github.com/javan/whenever
