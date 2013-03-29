@@ -8,14 +8,18 @@ class ReminderMailer < ActionMailer::Base
     @users.each do |user|    
         
       @reminders = user.reminders.opened 
-      open_reminders(user, @reminders).deliver if @reminders.count > 0
-          
+      
+      if @reminders.count > 0
+        open_reminders(user).deliver 
+      end   
     end
   end
   
-  def open_reminders(user, reminders)
+  def open_reminders(user)
     @user = user
-    @reminders = reminders
+    
+    @reminders = user.reminders.opened 
+      
     
     mail(:to => user.email, :subject => "Reminders for : " + @user.full_name)
   end

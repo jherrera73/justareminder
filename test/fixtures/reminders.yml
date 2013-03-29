@@ -4,8 +4,8 @@
 #
 #  id          :integer          not null, primary key
 #  description :string(255)
-#  start       :time
-#  end         :time
+#  start       :datetime
+#  end         :datetime
 #  user_id     :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
