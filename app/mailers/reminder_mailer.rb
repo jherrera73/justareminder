@@ -21,7 +21,9 @@ class ReminderMailer < ActionMailer::Base
       @reminders = contact.reminders.opened 
       
       if @reminders.count > 0
+        puts "Sendng email..."
         open_reminders_contact(contact).deliver 
+        puts "Complete"
       end   
     end
     
