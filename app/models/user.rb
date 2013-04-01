@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   
   has_many :contacts
   
-  has_many :reminders, :order => 'start DESC'
+  has_many :reminders, :order => 'start ASC'
   
   ROLES = %w[Admin User]
 

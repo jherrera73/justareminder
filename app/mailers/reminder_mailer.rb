@@ -7,7 +7,7 @@ class ReminderMailer < ActionMailer::Base
       
     @users.each do |user|    
         
-      @reminders = user.reminders.opened.order("start desc")
+      @reminders = user.reminders.opened.order("start ASC")
       
       if @reminders.count > 0
         open_reminders(user).deliver 
@@ -18,7 +18,7 @@ class ReminderMailer < ActionMailer::Base
     
     @contacts.each do |contact|    
         
-      @reminders = contact.reminders.opened.order("start desc")
+      @reminders = contact.reminders.opened.order("start ASC")
       
       if @reminders.count > 0
         puts "Sendng email..."
