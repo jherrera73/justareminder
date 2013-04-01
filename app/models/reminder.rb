@@ -28,8 +28,8 @@ class Reminder < ActiveRecord::Base
   
   before_create :make_open
   
-  def self.find_by_user_id(id, status)
-    reminders = Reminder.where("user_id == ? AND Status = ?", id, status)
+  def self.find_by_user_id(id)
+    reminders = Reminder.where("user_id == ? AND start >= ?", id, Time.zone.now)
   end
   
   scope :opened, lambda { where(:start => (Time.zone.now)..(Time.zone.now.midnight + 2.day)) }

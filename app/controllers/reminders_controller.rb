@@ -3,11 +3,7 @@ class RemindersController < ApplicationController
   before_filter :authenticate
 
   def index
-    if current_user_session.user.role == "Admin"
-      @reminders = Reminder.all
-    else
-      @reminders = Reminder.find_by_user_id(current_user_session.user.id, "Open")
-    end
+      @reminders = Reminder.find_by_user_id(current_user_session.user.id)
   end
 
   def new
