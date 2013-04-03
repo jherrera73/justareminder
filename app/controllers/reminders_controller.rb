@@ -51,8 +51,8 @@ class RemindersController < ApplicationController
   end
   
   def calendar_index
-    @reminders = Reminder.all
-    @reminders_by_date = @reminders.group_by(&:start)
+    @reminders = Reminder.find_by_user_id(current_user_session.user.id)
+    @reminders_by_date = @reminders.group_by {|i| i.start.to_date}
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
   
