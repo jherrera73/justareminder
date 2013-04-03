@@ -1,0 +1,17 @@
+<div id="calendar">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% if @reminders_by_date[date] %>
+      <ul>
+        <% @reminders_by_date[date].each do |reminder| %>
+          <li><%= link_to reminder.description, reminder %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>

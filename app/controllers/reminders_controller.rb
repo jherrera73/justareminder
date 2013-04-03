@@ -3,7 +3,7 @@ class RemindersController < ApplicationController
   before_filter :authenticate
 
   def index
-      @reminders = Reminder.find_by_user_id(current_user_session.user.id)
+    @reminders = Reminder.find_by_user_id(current_user_session.user.id)
   end
 
   def new
@@ -49,4 +49,11 @@ class RemindersController < ApplicationController
     redirect_to reminders_url
 
   end
+  
+  def calendar_index
+    @reminders = Reminder.all
+    @reminders_by_date = @reminders.group_by(&:start)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+  end
+  
 end

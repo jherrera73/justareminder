@@ -12,6 +12,8 @@ Justareminder::Application.routes.draw do
   resources :users, except: [:show]
 
   root to: 'pages#index'
+  
+  match '/reminder/calendar_index' => 'reminders#calendar_index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

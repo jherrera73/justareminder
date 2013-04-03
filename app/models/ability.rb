@@ -26,5 +26,6 @@ class Ability
     end
     
     can :new, User
+    
   end
 end
