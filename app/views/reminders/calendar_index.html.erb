@@ -9,7 +9,7 @@
     <% if @reminders_by_date[date] %>
       <ul>
         <% @reminders_by_date[date].each do |reminder| %>
-          <li><%= link_to reminder.start.strftime("%H:%M %P") + " - " + reminder.description, edit_reminder_path(reminder) %></li>
+          <li><%= link_to reminder.start.strftime("%I:%M%p") + " - " + reminder.description, edit_reminder_path(reminder) %></li>
         <% end %>
       </ul>
     <% end %>
