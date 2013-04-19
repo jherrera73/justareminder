@@ -17,7 +17,7 @@
 #   runner "AnotherModel.prune_old_records"
 # end
 
-every 1.day, :at => '6:30 am' do #send reminders to user that have open reminders.
+every 1.day, :at => '10:30 am' do #send reminders to user that have open reminders.
   runner ReminderMailer.send_open_reminders
 end
 
