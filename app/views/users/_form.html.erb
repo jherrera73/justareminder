@@ -20,6 +20,10 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
+    <%= f.label :mobile %> (no dashes)<br />
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="field">
     <%= f.label :time_zone %><br />
     <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
   </div>

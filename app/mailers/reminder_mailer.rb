@@ -10,6 +10,11 @@ class ReminderMailer < ActionMailer::Base
       @reminders = user.reminders.opened.order("start ASC")
       
       if @reminders.count > 0
+        
+        if user.mobile
+          message = Message.new
+          message.send_text(user.mobile)
+        end
         open_reminders(user).deliver 
       end   
     end
