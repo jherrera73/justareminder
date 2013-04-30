@@ -21,6 +21,7 @@
 					<thead>
 		  				<tr>
 							<th>Description</th>
+							<th>Location</th>
 		    				<th>Start time</th>
 		    				<th>End time</th>
 		  				</tr>
@@ -29,6 +30,7 @@
 						<% @reminders.each do |reminder| %>
 	      				<tr>
 							<td><%= reminder.description %></td>
+							<td><%= reminder.location ? link_to(reminder.location, reminder.location_url) : "No location given" %></td>
 				  			<td><%= reminder.start.strftime("%m/%d/%Y %I:%M %P")  %></td>
 				  			<td><%= reminder.end.strftime("%m/%d/%Y %I:%M %P")  %></td>
 						</tr>

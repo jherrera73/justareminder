@@ -12,6 +12,7 @@
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  time_zone         :string(255)
+#  mobile            :string(255)
 #
 
 class User < ActiveRecord::Base
