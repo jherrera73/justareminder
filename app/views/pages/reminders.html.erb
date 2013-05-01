@@ -1,0 +1,22 @@
+<h1>Reminders</h1>
+
+<table class="table">
+  <tr>
+    <th>Description</th>
+    <th>Start</th>
+    <th>End</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @reminders.each do |reminder| %>
+  <tr>
+    <td><%= reminder.description %></td>
+    <td><%= reminder.location ? link_to(reminder.location, reminder.location_url) : "No location given" %></td>
+    <td><%= reminder.start.strftime("%m/%d/%Y  %I:%M%p") %></td>
+    <td><%= reminder.end.strftime("%m/%d/%Y  %I:%M%p") %></td>
+    <td><%= link_to 'Edit', edit_reminder_path(reminder), class: "btn btn-small btn-info" %></td>
+    <td><%= button_to 'Delete', reminder, class: "btn btn-small btn-warning",  :confirm => "Are you sure?", :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

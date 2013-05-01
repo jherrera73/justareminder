@@ -8,6 +8,8 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  public_key :string(255)
+#  mobile     :string(30)
 #
 
 require 'test_helper'

@@ -1,6 +1,6 @@
 <%= form_for(@contact) do |f| %>
   <% if @contact.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-error">
       <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
 
       <ul>
@@ -18,6 +18,10 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label 'Mobile phone (no dashes)' %><br />
+    <%= f.text_field :mobile %>
   </div>
   <div class="actions">
     <%= f.submit 'Create contact', class: 'btn btn-primary' %>

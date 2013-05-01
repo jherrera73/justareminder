@@ -8,20 +8,33 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  public_key :string(255)
+#  mobile     :string(30)
 #
 
 class Contact < ActiveRecord::Base
-  attr_accessible :full_name, :email, :user_id
+  attr_accessible :full_name, :email, :user_id, :mobile
   
-  has_many :contactsreminders
-  has_many :reminders, through: :contactsreminders
+  has_many     :contactsreminders
+  has_many     :reminders, through: :contactsreminders
   
-  validates :full_name, :presence => true
+  validates    :full_name, :presence => true
   
-  validates :email, :presence => true
+  validates    :email, :presence => true
+  
+  before_save  :add_public_key
   
   def self.find_by_user_id(id)
     contacts = Contact.where("user_id == ?", id)
   end
   
+  def self.find_by_public_key(id)
+    contact = Contact.where("public_key = ?", id)
+  end
+  
+  private
+  
+  def add_public_key
+    self.public_key = SecureRandom.uuid if self.public_key.blank?
+  end
 end

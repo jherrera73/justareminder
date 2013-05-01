@@ -11,14 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130430040312) do
+ActiveRecord::Schema.define(:version => 20130501211419) do
 
   create_table "contacts", :force => true do |t|
     t.string   "full_name"
     t.string   "email"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+    t.string   "public_key"
+    t.string   "mobile",     :limit => 30
   end
 
   create_table "contactsreminders", :force => true do |t|
@@ -51,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20130430040312) do
     t.datetime "updated_at",                       :null => false
     t.string   "time_zone"
     t.string   "mobile"
+    t.string   "public_key"
   end
 
 end

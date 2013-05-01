@@ -11,9 +11,9 @@ class ReminderMailer < ActionMailer::Base
       
       if @reminders.count > 0
         
-        if user.mobile
+        if user.mobile.present
           message = Message.new
-          message.send_text(user.mobile)
+          message.send_text(user.mobile, user.public_key)
         end
         open_reminders(user).deliver 
       end   
@@ -26,9 +26,13 @@ class ReminderMailer < ActionMailer::Base
       @reminders = contact.reminders.opened.order("start ASC")
       
       if @reminders.count > 0
-        puts "Sendng email..."
+        if contact.mobile.present
+          message = Message.new
+          message.send_text(contact.mobile, contact.public_key)
+        end
+        
         open_reminders_contact(contact).deliver 
-        puts "Complete"
+
       end   
     end
     

@@ -13,16 +13,18 @@
 #  updated_at        :datetime         not null
 #  time_zone         :string(255)
 #  mobile            :string(255)
+#  public_key        :string(255)
 #
 
 class User < ActiveRecord::Base
   acts_as_authentic
 
-  attr_accessible :email, :full_name, :password, :password_confirmation, :role, :time_zone
+  attr_accessible :email, :full_name, :password, :password_confirmation, :role, :time_zone, :mobile
   
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name)
 
   before_save     :ensure_in_role
+  before_save     :add_public_key
   
   has_many :contacts
   
@@ -33,10 +35,19 @@ class User < ActiveRecord::Base
   def admin?
     self.role == "Admin"
   end
+  
+  def self.find_by_public_key(id)
+    user = User.where("public_key = ?", id)
+  end
 
   private
 
   def ensure_in_role
     self.role = "User" if self.role.blank?
   end
+  
+  def add_public_key
+    self.public_key = SecureRandom.uuid if self.public_key.blank?
+  end
+  
 end
