@@ -35,12 +35,7 @@ class Reminder < ActiveRecord::Base
   end
   
   scope :opened, lambda { where(:start => (Time.zone.now)..(Time.zone.now.midnight + 2.day)) }
-  
-  def close
-    self.status = "Closed"
-    self.save
-  end
-  
+    
   private
   
   def make_open

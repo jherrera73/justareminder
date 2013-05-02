@@ -14,6 +14,8 @@ Justareminder::Application.routes.draw do
   root to: 'pages#index'
   
   match '/reminder/calendar_index' => 'reminders#calendar_index'
+  
+  match 'pages/reminders/:id' => 'pages#reminders'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -18,6 +18,8 @@ one:
   full_name: johnherrera
   email: bill@comcast.net
   user_id: 1
+  public_key: "c945ddce-4e8b-42fe-91e7-61f2e91c8643"
+  mobile: "6307097291"
 
 two:
   full_name:  

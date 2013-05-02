@@ -26,12 +26,16 @@ one:
   password_salt: <%= salt = Authlogic::Random.hex_token %>
   crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("erin1975" + salt) %>
   persistence_token: <%= Authlogic::Random.hex_token %>
-
+  public_key: "2fddfdde-0e5f-4805-a039-f8563fecd626"
+  mobile: "6307097291"
+  
 two:
   full_name: Matt Ruggio
-  email: mruggio@visionps.com
+  email: MadMstt@comcast.net
   role: user
   time_zone: Central Time (US & Canada)
   password_salt: <%= salt = Authlogic::Random.hex_token %>
   crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("pissoff" + salt) %>
   persistence_token: <%= Authlogic::Random.hex_token %>
+  public_key: "0f9f2633-96df-439c-b3ac-6304694cc128"
+  mobile: ""

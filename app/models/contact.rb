@@ -32,6 +32,13 @@ class Contact < ActiveRecord::Base
     contact = Contact.where("public_key = ?", id)
   end
   
+  def send_message
+    return false if self.mobile.blank?
+    message = Message.new
+    message.send_text(self.mobile, self.public_key)
+    return true
+  end
+  
   private
   
   def add_public_key

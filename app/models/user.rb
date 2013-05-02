@@ -19,7 +19,9 @@
 class User < ActiveRecord::Base
   acts_as_authentic
 
-  attr_accessible :email, :full_name, :password, :password_confirmation, :role, :time_zone, :mobile
+  attr_accessible :email, :full_name, :password, 
+                  :password_confirmation, :role, :time_zone, :mobile,
+                  :public_key
   
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name)
 
@@ -37,7 +39,14 @@ class User < ActiveRecord::Base
   end
   
   def self.find_by_public_key(id)
-    user = User.where("public_key = ?", id)
+    user = User.where("public_key = ?", id).first
+  end
+  
+  def send_message
+    return false if self.mobile.blank?
+    message = Message.new
+    message.send_text(self.mobile, self.public_key)
+    return true
   end
 
   private

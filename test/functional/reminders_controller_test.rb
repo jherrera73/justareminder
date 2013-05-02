@@ -65,4 +65,9 @@ class RemindersControllerTest < ActionController::TestCase
 
     assert_redirected_to reminders_path
   end
+  
+  test "should get calendar_index page for user" do
+    get :calendar_index
+    assert_response :success
+  end
 end

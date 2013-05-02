@@ -5,13 +5,14 @@ class PagesController < ApplicationController
   end
   
   def reminders
-    user = User.find_by_public_key(params[:id])
-    return @reminders = user.reminders.opened.order("start ASC") if user.present?
+    found_user = User.find_by_public_key(params[:id])
+    @reminders = found_user.reminders.opened.order("start ASC") if found_user.present?
   
-    contact = Contact..find_by_public_key(params[:id])
-    return @reminders = user.reminders.opened.order("start ASC") if contact.present?
+    found_contact = Contact.find_by_public_key(params[:id])
+    @reminders = found_contact.reminders.opened.order("start ASC") if found_contact.present?
     
     return @reminders
   end
 
 end
+

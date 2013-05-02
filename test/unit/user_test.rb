@@ -19,7 +19,18 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "valid user public_key should return one user for find_by_public_key" do
+    @user = User.find_by_public_key(users(:one).public_key)
+    assert_not_nil @user
+  end
+  
+  test "valid user with mobile number will send message " do
+    @user = users(:one)
+    assert @user.send_message
+  end
+  
+  test "valid user without mobile number will not send message " do
+    @user = users(:two)
+    assert_equal false, @user.send_message
+  end
 end

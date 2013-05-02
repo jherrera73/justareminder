@@ -9,6 +9,11 @@ class PagesControllerTest < ActionController::TestCase
     assert_select 'title', /Just a reminder/  
   end
   
+  test "should get index of all reminders for public view" do
+    get :reminders, id: users(:one).public_key
+    assert_response :success
+  end
+  
   private
   
   def setup_for_admin
