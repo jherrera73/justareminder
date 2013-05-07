@@ -1,16 +1,13 @@
-class RemindersController < ApplicationController
-  before_filter :authenticate
+class Api::RemindersController < ApplicationController
 
   def index
-    @reminders = Reminder.find_by_user_id(current_user_session.user.id)
+    @reminders = Reminder.find_by_user_id(params[:user_id])
+    render :json => @reminders
   end
-
-  def new
-    @reminder = Reminder.new
-  end
-
+  
   def edit
     @reminder = Reminder.find(params[:id])
+    render json: @reminder
   end
 
   def create
@@ -22,9 +19,9 @@ class RemindersController < ApplicationController
     @reminder.user_id = current_user_session.user.id
 
     if @reminder.save
-      redirect_to reminders_url, notice: 'Reminder was successfully created.'
+      render json: @reminder, :status => 200
     else
-      render action: "new"
+      render json: { :errors => @reminder.errors.as_json }, :status => :unprocessible_entity
     end
   end
 
@@ -34,10 +31,11 @@ class RemindersController < ApplicationController
     startDateTime = params[:reminder][:start] + " " + Time.zone.now.strftime("%Z")
     params[:reminder][:end] = Time.strptime(endDateTime, '%m/%d/%Y %H:%M %Z').utc
     params[:reminder][:start] =  Time.strptime(startDateTime, '%m/%d/%Y %H:%M %Z').utc
-    if @reminder.update_attributes(params[:reminder])
-      redirect_to reminders_url, notice: 'Reminder was successfully updated.'
+    
+    if @reminder.update_attributes(params[:contact])
+      render json: @reminder, :status => 200
     else
-      render action: "edit"
+      render json: { :errors => @reminder.errors.as_json }, :status => :unprocessible_entity
     end
   end
 
@@ -45,14 +43,7 @@ class RemindersController < ApplicationController
     @reminder = Reminder.find(params[:id])
     @reminder.destroy
 
-    redirect_to reminders_url
+    render json: :nothing, :status => 200
 
   end
-  
-  def calendar_index
-    @reminders = Reminder.find_by_user_id(current_user_session.user.id)
-    @reminders_by_date = @reminders.group_by {|i| i.start.to_date}
-    @date = params[:date] ? Date.parse(params[:date]) : Date.today
-  end
-  
 end

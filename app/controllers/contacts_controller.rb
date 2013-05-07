@@ -1,5 +1,4 @@
 class ContactsController < ApplicationController
-  
   before_filter :authenticate
   
   # GET /contacts
@@ -28,7 +27,6 @@ class ContactsController < ApplicationController
   # POST /contacts.json
   def create
     @contact = Contact.new(params[:contact])
-    @contact.user_id = current_user_session.user.id
     
     if @contact.save
       redirect_to contacts_url, notice: 'Contact was successfully created.' 

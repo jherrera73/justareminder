@@ -1,5 +1,4 @@
-class UsersController < ApplicationController
-  
+class UsersController < ApplicationController 
   before_filter :authenticate, :only=> [:index, :edit, :update, :destroy]
   
   def index

@@ -16,6 +16,14 @@ Justareminder::Application.routes.draw do
   match '/reminder/calendar_index' => 'reminders#calendar_index'
   
   match 'pages/reminders/:id' => 'pages#reminders'
+  
+  # Sample resource route within a namespace:
+  namespace :Api do
+    resources :users do
+      resources :contacts
+      resources :reminders  
+    end    
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
