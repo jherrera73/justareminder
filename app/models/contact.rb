@@ -25,7 +25,7 @@ class Contact < ActiveRecord::Base
   before_save  :add_public_key
   
   def self.find_by_user_id(id)
-    contacts = Contact.where("user_id == ?", id)
+    contacts = Contact.where("user_id = ?", id)
   end
   
   def self.find_by_public_key(id)
