@@ -18,7 +18,7 @@ Justareminder::Application.routes.draw do
   match 'pages/reminders/:id' => 'pages#reminders'
   
   # Sample resource route within a namespace:
-  namespace :Api do
+  namespace :api do
     resources :users do
       resources :contacts
       resources :reminders  
