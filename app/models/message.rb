@@ -18,5 +18,30 @@ class Message
     return true
   
   end
+  
+  def self.send_text_open_reminders
+    @users = User.all
+      
+    @users.each do |user|    
+        
+      @reminders = user.reminders.opened.order("start ASC")
+      
+      if @reminders.count > 0     
+        user.send_message 
+      end   
+    end
+    
+    @contacts = Contact.all
+    
+    @contacts.each do |contact|    
+        
+      @reminders = contact.reminders.opened.order("start ASC")
+      
+      if @reminders.count > 0
+        contact.send_message     
+      end   
+    end
+    
+  end
     
 end

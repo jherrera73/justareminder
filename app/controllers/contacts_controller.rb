@@ -27,8 +27,10 @@ class ContactsController < ApplicationController
   # POST /contacts.json
   def create
     @contact = Contact.new(params[:contact])
+    @user = current_user_session.user
     
     if @contact.save
+      ContactMailer.contact_confirmation(@contact, @user).deliver   
       redirect_to contacts_url, notice: 'Contact was successfully created.' 
     else
       render action: "new"

@@ -3,8 +3,8 @@
 <table class="table">
   <tr>
     <th>Description</th>
+    <th>location<th>
     <th>Start</th>
-    <th>End</th>
   </tr>
 
 <% @reminders.each do |reminder| %>
@@ -12,7 +12,6 @@
     <td><%= reminder.description %></td>
     <td><%= reminder.location ? link_to(reminder.location, reminder.location_url) : "No location given" %></td>
     <td><%= reminder.start.strftime("%m/%d/%Y  %I:%M%p") %></td>
-    <td><%= reminder.end.strftime("%m/%d/%Y  %I:%M%p") %></td>
   </tr>
 <% end %>
 </table>
