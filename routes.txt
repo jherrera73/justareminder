@@ -1,0 +1,48 @@
+               contacts GET    /contacts(.:format)                              contacts#index
+                        POST   /contacts(.:format)                              contacts#create
+            new_contact GET    /contacts/new(.:format)                          contacts#new
+           edit_contact GET    /contacts/:id/edit(.:format)                     contacts#edit
+                contact GET    /contacts/:id(.:format)                          contacts#show
+                        PUT    /contacts/:id(.:format)                          contacts#update
+                        DELETE /contacts/:id(.:format)                          contacts#destroy
+              reminders GET    /reminders(.:format)                             reminders#index
+                        POST   /reminders(.:format)                             reminders#create
+           new_reminder GET    /reminders/new(.:format)                         reminders#new
+          edit_reminder GET    /reminders/:id/edit(.:format)                    reminders#edit
+               reminder GET    /reminders/:id(.:format)                         reminders#show
+                        PUT    /reminders/:id(.:format)                         reminders#update
+                        DELETE /reminders/:id(.:format)                         reminders#destroy
+                  login        /login(.:format)                                 user_sessions#new
+                 logout        /logout(.:format)                                user_sessions#destroy
+          user_sessions POST   /user_sessions(.:format)                         user_sessions#create
+       new_user_session GET    /user_sessions/new(.:format)                     user_sessions#new
+                  users GET    /users(.:format)                                 users#index
+                        POST   /users(.:format)                                 users#create
+               new_user GET    /users/new(.:format)                             users#new
+              edit_user GET    /users/:id/edit(.:format)                        users#edit
+                   user PUT    /users/:id(.:format)                             users#update
+                        DELETE /users/:id(.:format)                             users#destroy
+                   root        /                                                pages#index
+reminder_calendar_index        /reminder/calendar_index(.:format)               reminders#calendar_index
+                               /pages/reminders/:id(.:format)                   pages#reminders
+      api_user_contacts GET    /api/users/:user_id/contacts(.:format)           api/contacts#index
+                        POST   /api/users/:user_id/contacts(.:format)           api/contacts#create
+   new_api_user_contact GET    /api/users/:user_id/contacts/new(.:format)       api/contacts#new
+  edit_api_user_contact GET    /api/users/:user_id/contacts/:id/edit(.:format)  api/contacts#edit
+       api_user_contact GET    /api/users/:user_id/contacts/:id(.:format)       api/contacts#show
+                        PUT    /api/users/:user_id/contacts/:id(.:format)       api/contacts#update
+                        DELETE /api/users/:user_id/contacts/:id(.:format)       api/contacts#destroy
+     api_user_reminders GET    /api/users/:user_id/reminders(.:format)          api/reminders#index
+                        POST   /api/users/:user_id/reminders(.:format)          api/reminders#create
+  new_api_user_reminder GET    /api/users/:user_id/reminders/new(.:format)      api/reminders#new
+ edit_api_user_reminder GET    /api/users/:user_id/reminders/:id/edit(.:format) api/reminders#edit
+      api_user_reminder GET    /api/users/:user_id/reminders/:id(.:format)      api/reminders#show
+                        PUT    /api/users/:user_id/reminders/:id(.:format)      api/reminders#update
+                        DELETE /api/users/:user_id/reminders/:id(.:format)      api/reminders#destroy
+              api_users GET    /api/users(.:format)                             api/users#index
+                        POST   /api/users(.:format)                             api/users#create
+           new_api_user GET    /api/users/new(.:format)                         api/users#new
+          edit_api_user GET    /api/users/:id/edit(.:format)                    api/users#edit
+               api_user GET    /api/users/:id(.:format)                         api/users#show
+                        PUT    /api/users/:id(.:format)                         api/users#update
+                        DELETE /api/users/:id(.:format)                         api/users#destroy

@@ -9,8 +9,7 @@ class ReminderMailer < ActionMailer::Base
         
       @reminders = user.reminders.opened.order("start ASC")
       
-      if @reminders.count > 0     
-        user.send_message 
+      if @reminders.count > 0      
         open_reminders(user).deliver 
       end   
     end
@@ -22,7 +21,6 @@ class ReminderMailer < ActionMailer::Base
       @reminders = contact.reminders.opened.order("start ASC")
       
       if @reminders.count > 0
-        contact.send_message     
         open_reminders_contact(contact).deliver 
       end   
     end
