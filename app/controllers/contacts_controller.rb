@@ -30,7 +30,7 @@ class ContactsController < ApplicationController
     @user = current_user_session.user
     
     if @contact.save
-      ContactMailer.contact_confirmation(@contact, @user).deliver   
+      ContactMailer.contact_confirmation(@user, @contact).deliver   
       redirect_to contacts_url, notice: 'Contact was successfully created.' 
     else
       render action: "new"
