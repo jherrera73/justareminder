@@ -34,6 +34,10 @@ class Reminder < ActiveRecord::Base
     reminders = Reminder.where("user_id = ? AND start >= ?", id, Time.zone.now).order("start ASC")
   end
   
+  def self.find_all_by_user_id(id)
+    reminders = Reminder.where("user_id = ?", id).order("start ASC")
+  end
+  
   scope :opened, lambda { where(:start => (Time.zone.now)..(Time.zone.now.midnight + 2.day)) }
     
   private

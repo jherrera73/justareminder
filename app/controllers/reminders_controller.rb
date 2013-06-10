@@ -4,15 +4,25 @@ class RemindersController < ApplicationController
   def index
     @reminders = Reminder.find_by_user_id(current_user_session.user.id)
   end
+  
+  def allreminders
+    @reminders = Reminder.find_all_by_user_id(current_user_session.user.id)
+  end
 
   def new
     @reminder = Reminder.new
+  end
+  
+  def copy
+    @reminder = Reminder.find(params[:id])
+    @reminder.end = nil
+    @reminder.start = nil
   end
 
   def edit
     @reminder = Reminder.find(params[:id])
   end
-
+  
   def create
     @reminder = Reminder.new(params[:reminder])
     endDateTime = params[:reminder][:end] + " " + Time.zone.now.strftime("%Z")

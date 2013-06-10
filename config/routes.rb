@@ -15,6 +15,10 @@ Justareminder::Application.routes.draw do
   
   match '/reminder/calendar_index' => 'reminders#calendar_index'
   
+  match '/reminder/allreminders' => 'reminders#allreminders'
+  
+  match '/reminder/copy/:id' => 'reminders#copy', :as => :reminders_copy
+  
   match 'pages/reminders/:id' => 'pages#reminders'
   
   # Sample resource route within a namespace:
