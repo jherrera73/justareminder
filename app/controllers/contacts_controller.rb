@@ -28,6 +28,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(params[:contact])
     @user = current_user_session.user
+    @contact.user_id = @user.id
     
     if @contact.save
       ContactMailer.contact_confirmation(@user, @contact).deliver   
